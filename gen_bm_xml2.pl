@@ -100,7 +100,9 @@ sub parseLine
 		
 	}
 
-	$name =~ s/^\t*(.*?)\.{7}.*$/$1/g;
+	$name =~ s/^\t*\s*(.*?)\s*\.{7}.*$/$1/g;
+	$name =~ s/\</\&lt;/g;
+	$name =~ s/\>/\&gt;/g;
 
 	$page =~ s/(.*?)(\d*)\s*$/$2/g;
 	$page += $page_offset;
